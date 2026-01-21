@@ -1,0 +1,144 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canonical Security Event",
+  "description": "Canonical event schema for multi-tenant SIEM platform",
+  "type": "object",
+  "required": [
+    "tenant_id",
+    "event_id",
+    "timestamp",
+    "source",
+    "category",
+    "severity"
+  ],
+  "properties": {
+    "tenant_id": {
+      "type": "string",
+      "description": "Unique tenant identifier",
+      "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+      "minLength": 3,
+      "maxLength": 63,
+      "examples": ["acme-corp", "contoso-ltd"]
+    },
+    "event_id": {
+      "type": "string",
+      "format": "uuid",
+      "description": "Unique event identifier (UUID v4)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Event occurrence time in ISO 8601 format"
+    },
+    "source": {
+      "type": "object",
+      "required": ["system"],
+      "properties": {
+        "system": {
+          "type": "string",
+          "description": "Source system name",
+          "examples": ["active-directory", "aws-cloudtrail", "kubernetes", "firewall"]
+        },
+        "integration": {
+          "type": "string",
+          "description": "Integration or connector name",
+          "examples": ["windows-event-log", "syslog", "api-poll"]
+        },
+        "host": {
+          "type": "string",
+          "description": "Source hostname or IP"
+        }
+      }
+    },
+    "category": {
+      "type": "string",
+      "enum": ["auth", "endpoint", "network", "cloud", "k8s", "storage", "ops"],
+      "description": "Event category"
+    },
+    "severity": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Event severity (0=info, 10=critical)"
+    },
+    "actor": {
+      "type": "object",
+      "description": "Entity that performed the action",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["user", "service", "device", "unknown"],
+          "default": "unknown"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique actor identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable actor name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Actor email address"
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "description": "Entity that was acted upon",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["asset", "workload", "service", "data", "unknown"],
+          "default": "unknown"
+        },
+        "id": {
+          "type": "string",
+          "description": "Unique target identifier"
+        },
+        "name": {
+          "type": "string",
+          "description": "Human-readable target name"
+        }
+      }
+    },
+    "action": {
+      "type": "string",
+      "description": "Action performed",
+      "examples": ["login", "logout", "create", "delete", "update", "access"]
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["success", "failure", "unknown"],
+      "description": "Action outcome"
+    },
+    "attributes": {
+      "type": "object",
+      "description": "Event-specific attributes (freeform)",
+      "additionalProperties": true,
+      "examples": [
+        {
+          "failed_login_count": 1,
+          "source_ip": "203.0.113.42",
+          "user_agent": "Mozilla/5.0",
+          "geo_country": "US"
+        }
+      ]
+    },
+    "raw_ref": {
+      "type": "string",
+      "description": "Reference to raw event (object storage URL, log index, etc.)"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Event tags for filtering and correlation",
+      "examples": [["authentication", "failed-login", "brute-force"]]
+    }
+  },
+  "additionalProperties": false
+}

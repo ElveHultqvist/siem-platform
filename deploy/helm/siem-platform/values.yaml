@@ -1,0 +1,190 @@
+# Global settings
+global:
+  imageRegistry: ""
+  imagePullSecrets: []
+
+# Control Plane Services
+api-gateway:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: siem-platform/api-gateway
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+tenant-service:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: siem-platform/tenant-service
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "50m"
+    limits:
+      memory: "256Mi"
+      cpu: "200m"
+
+content-service:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: siem-platform/content-service
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "50m"
+    limits:
+      memory: "256Mi"
+      cpu: "200m"
+
+# Data Plane Services
+ingest-service:
+  enabled: true
+  replicaCount: 3
+  image:
+    repository: siem-platform/ingest-service
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 8080
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "200m"
+    limits:
+      memory: "512Mi"
+      cpu: "1000m"
+
+normalize-service:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: siem-platform/normalize-service
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+detect-service:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: siem-platform/detect-service
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  resources:
+    requests:
+      memory: "512Mi"
+      cpu: "200m"
+    limits:
+      memory: "1Gi"
+      cpu: "1000m"
+
+case-service:
+  enabled: true
+  replicaCount: 2
+  image:
+    repository: siem-platform/case-service
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+connector-service:
+  enabled: true
+  replicaCount: 1
+  image:
+    repository: siem-platform/connector-service
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  service:
+    type: ClusterIP
+    port: 80
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+# Infrastructure Services
+nats:
+  enabled: true
+  nats:
+    jetstream:
+      enabled: true
+      memStorage:
+        enabled: true
+        size: 2Gi
+      fileStorage:
+        enabled: true
+        size: 10Gi
+  natsbox:
+    enabled: true
+
+postgresql:
+  enabled: true
+  auth:
+    postgresPassword: "changeme-in-production"
+    database: "siem_platform"
+  primary:
+    persistence:
+      enabled: true
+      size: 20Gi
+    resources:
+      requests:
+        memory: "256Mi"
+        cpu: "100m"
+      limits:
+        memory: "1Gi"
+        cpu: "1000m"
+
+opensearch:
+  enabled: true
+  replicas: 1
+  minimumMasterNodes: 1
+  persistence:
+    enabled: true
+    size: 30Gi
+  resources:
+    requests:
+      memory: "1Gi"
+      cpu: "500m"
+    limits:
+      memory: "2Gi"
+      cpu: "2000m"
+  config:
+    opensearch.yml: |
+      cluster.name: siem-cluster
+      network.host: 0.0.0.0
+      plugins.security.disabled: true
