@@ -37,22 +37,22 @@
 
 ### Core Implementation
 
-- [ ] Initialize Go module and project structure
-- [ ] Implement HTTP ingestion endpoint (/v1/ingest/events)
-- [ ] Add tenant validation middleware
-- [ ] Implement JWT authentication middleware
-- [ ] Add tenant context extraction from headers
-- [ ] Implement NATS JetStream publisher
-- [ ] Add structured JSON logging
-- [ ] Create OpenTelemetry tracing stubs
+- [x] Initialize Go module and project structure
+- [x] Implement HTTP ingestion endpoint (/v1/ingest/events)
+- [x] Add tenant validation middleware
+- [x] Implement JWT authentication middleware
+- [x] Add tenant context extraction from headers
+- [x] Implement NATS JetStream publisher
+- [x] Add structured JSON logging
+- [x] Create OpenTelemetry tracing stubs
 
 ### Testing & Deployment
 
-- [ ] Write unit tests for tenant validation
-- [ ] Write unit tests for event publishing
-- [ ] Create Dockerfile for ingest-service
-- [ ] Create Helm chart values
-- [ ] Test in local Kubernetes cluster
+- [x] Write unit tests for tenant validation
+- [x] Write unit tests for event publishing
+- [x] Create Dockerfile for ingest-service
+- [x] Create Helm chart values
+- [x] Test in local Kubernetes cluster
 
 ## Sprint 3: Detection Engine (Task 3 - Python)
 
