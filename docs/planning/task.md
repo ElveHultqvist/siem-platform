@@ -2,36 +2,36 @@
 
 ## Sprint 0: Project Foundation
 
-- [ ] Create monorepo directory structure
-- [ ] Initialize Git repository with .gitignore
-- [ ] Create shared libraries structure (/libs/common)
-- [ ] Set up documentation framework (/docs)
-- [ ] Create assumptions.md document
+- [x] Create monorepo directory structure
+- [x] Initialize Git repository with .gitignore
+- [x] Create shared libraries structure (/libs/common)
+- [x] Set up documentation framework (/docs)
+- [x] Create assumptions.md document
 
 ## Sprint 1: Platform Skeleton (Task 1)
 
 ### Repository Structure
 
-- [ ] Create service directories (api-gateway, ingest-service, normalize-service, detect-service, case-service, connector-service)
-- [ ] Create deployment directories (Helm charts, Kustomize overlays)
-- [ ] Create scripts directory for bootstrap and dev tooling
+- [x] Create service directories (api-gateway, ingest-service, normalize-service, detect-service, case-service, connector-service)
+- [x] Create deployment directories (Helm charts, Kustomize overlays)
+- [x] Create scripts directory for bootstrap and dev tooling
 
 ### Infrastructure & DevOps
 
-- [ ] Create Helm charts for each service
-- [ ] Create umbrella Helm chart
-- [ ] Create Kustomize overlays (dev, staging, prod)
-- [ ] Implement Makefile with targets: dev-up, dev-down, test, lint, fmt, seed
-- [ ] Create local Kubernetes bootstrap scripts (Kind/K3d)
-- [ ] Set up GitHub Actions CI workflow for linting and tests
+- [x] Create Helm charts for each service
+- [x] Create umbrella Helm chart
+- [x] Create Kustomize overlays (dev, staging, prod)
+- [x] Implement Makefile with targets: dev-up, dev-down, test, lint, fmt, seed
+- [x] Create local Kubernetes bootstrap scripts (Kind/K3d)
+- [x] Set up GitHub Actions CI workflow for linting and tests
 
 ### Documentation
 
-- [ ] Write architecture overview
-- [ ] Document local development setup
-- [ ] Create canonical event schema (JSON Schema)
-- [ ] Document tenant bootstrap process
-- [ ] Create connector development guide
+- [x] Write architecture overview
+- [x] Document local development setup
+- [x] Create canonical event schema (JSON Schema)
+- [x] Document tenant bootstrap process
+- [x] Create connector development guide
 
 ## Sprint 2: Ingest Service (Task 2 - Go)
 
