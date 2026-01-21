@@ -224,6 +224,15 @@ See: [Connector Development Guide](docs/connectors/development_guide.md)
 4. Write unit tests
 5. Document rule in content service
 
+## Planning & Documentation
+
+Project planning documents are in [`docs/planning/`](docs/planning/):
+
+- **[task.md](docs/planning/task.md)** - Sprint-by-sprint task checklist with progress tracking
+- **[implementation_plan.md](docs/planning/implementation_plan.md)** - 10-sprint roadmap with timelines and deliverables
+- **[sub_agents.md](docs/planning/sub_agents.md)** - Detailed specifications for each development agent
+- **[sprint_0_1_walkthrough.md](docs/planning/sprint_0_1_walkthrough.md)** - Walkthrough of platform skeleton completion
+
 ## Repository Structure
 
 ```
@@ -243,6 +252,7 @@ siem-platform/
 │   ├── helm/                # Helm charts per service + umbrella
 │   └── kustomize/           # Environment overlays (dev/staging/prod)
 ├── docs/
+│   ├── planning/            # Sprint planning and agent specs
 │   ├── schema/              # Event schemas (JSON Schema)
 │   ├── architecture/        # Architecture docs, ADRs
 │   └── connectors/          # Connector documentation
