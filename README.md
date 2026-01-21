@@ -106,7 +106,7 @@ A modern, cloud-native SIEM (Security Information and Event Management) + SOAR (
 
 ```bash
 # Clone repository
-git clone https://github.com/YOUR_USERNAME/siem-platform.git
+git clone https://github.com/ElveHultqvist/siem-platform.git
 cd siem-platform
 
 # Start Kind cluster + NGINX Ingress
@@ -346,8 +346,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 💬 Support
 
-- **Issues**: [GitHub Issues](https://github.com/YOUR_USERNAME/siem-platform/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/YOUR_USERNAME/siem-platform/discussions)
+- **Issues**: [GitHub Issues](https://github.com/ElveHultqvist/siem-platform/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/ElveHultqvist/siem-platform/discussions)
 - **Email**: your-email@example.com
 
 ---
