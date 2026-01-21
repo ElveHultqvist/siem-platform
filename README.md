@@ -65,19 +65,19 @@ A modern, cloud-native SIEM (Security Information and Event Management) + SOAR (
    │  Ingest  │ │ Detect │ │   Case   │  │  Connector  │
    │  (Go)    │ │ (Py)   │ │   (Py)   │  │    (Py)     │
    └────┬─────┘ └───┬────┘ └────┬─────┘  └──────┬──────┘
-        │           │           │                │
-        │      ┌────▼──────┐    │                │
-        │      │ NATS      │    │                │
-        │      │ JetStream │◄───┘                │
-        └─────►│           │                     │
-               └───────────┘                     │
-                     │                           │
+        │           │           │               │
+        │      ┌────▼──────┐    │               │
+        │      │ NATS      │    │               │
+        │      │ JetStream │◄───┘               │
+        └─────►│           │                    │
+               └───────────┘                    │
+                     │                          │
          ┌───────────┼──────────┬───────────────┘
-         │           │          │
-    ┌────▼─────┐  ┌─▼─────────┐│
-    │OpenSearch│  │ PostgreSQL││
-    │ (Alerts) │  │  (Cases)  ││
-    └──────────┘  └───────────┘│
+         │           │          
+    ┌────▼─────┐  ┌─▼─────────┐
+    │OpenSearch│  │ PostgreSQL│
+    │ (Alerts) │  │  (Cases)  │
+    └──────────┘  └───────────┘
 ```
 
 **Key Components**:
