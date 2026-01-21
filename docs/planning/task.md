@@ -78,27 +78,27 @@
 
 ### Database & Schema
 
-- [ ] Design Postgres schema with tenant_id on all tables
-- [ ] Create SQL migrations for case tables
-- [ ] Implement row-level tenant isolation
-- [ ] Add audit fields (created_at, updated_at, created_by)
+- [x] Design Postgres schema with tenant_id on all tables
+- [x] Create SQL migrations for case tables
+- [x] Implement row-level tenant isolation
+- [x] Add audit fields (created_at, updated_at, created_by)
 
 ### API Implementation
 
-- [ ] Initialize Python/FastAPI service
-- [ ] Implement case creation endpoint
-- [ ] Implement alert-to-case linking
-- [ ] Add multi-tenant enforcement middleware
-- [ ] Create case query endpoints
-- [ ] Add OpenAPI specification
+- [x] Initialize Python/FastAPI service
+- [x] Implement case creation endpoint
+- [x] Implement alert-to-case linking
+- [x] Add multi-tenant enforcement middleware
+- [x] Create case query endpoints
+- [x] Add OpenAPI specification
 
 ### Testing & Deployment
 
-- [ ] Write unit tests for case creation
-- [ ] Write tests for tenant isolation
-- [ ] Create Dockerfile for case-service
-- [ ] Create Helm chart values
-- [ ] Test case creation from alerts
+- [x] Write unit tests for case creation
+- [x] Write tests for tenant isolation
+- [x] Create Dockerfile for case-service
+- [x] Create Helm chart values
+- [x] Test case creation from alerts
 
 ## Sprint 5: Connector Service (Task 5)
 

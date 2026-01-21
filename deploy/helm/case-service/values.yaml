@@ -1,0 +1,41 @@
+replicaCount: 2
+
+image:
+  repository: siem-platform/case-service
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "200m"
+  limits:
+    memory: "512Mi"
+    cpu: "1000m"
+
+env:
+  - name: PORT
+    value: "8080"
+  - name: DATABASE_URL
+    value: "postgresql://siem:siem@postgres:5432/siem_platform"
+  - name: LOG_LEVEL
+    value: "INFO"
+
+livenessProbe:
+  httpGet:
+    path: /health
+    port: 8080
+  initialDelaySeconds: 15
+  periodSeconds: 30
+
+readinessProbe:
+  httpGet:
+    path: /ready
+    port: 8080
+  initialDelaySeconds: 10
+  periodSeconds: 10
