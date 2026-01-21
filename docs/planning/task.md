@@ -58,21 +58,21 @@
 
 ### Core Implementation
 
-- [ ] Initialize Python project with FastAPI
-- [ ] Implement NATS consumer for normalized events
-- [ ] Create in-memory state store for rule engine
-- [ ] Implement simple failed login detection rule (10 failures in 5 minutes)
-- [ ] Add alert emission to OpenSearch
-- [ ] Implement tenant-aware indexing (alerts-{tenant_id})
-- [ ] Add structured logging
+- [x] Initialize Python project with FastAPI
+- [x] Implement NATS consumer for normalized events
+- [x] Create in-memory state store for rule engine
+- [x] Implement simple failed login detection rule (10 failures in 5 minutes)
+- [x] Add alert emission to OpenSearch
+- [x] Implement tenant-aware indexing (alerts-{tenant_id})
+- [x] Add structured logging
 
 ### Testing & Deployment
 
-- [ ] Write unit tests for rule engine logic
-- [ ] Write tests for state management
-- [ ] Create Dockerfile for detect-service
-- [ ] Create Helm chart values
-- [ ] Test detection flow end-to-end
+- [x] Write unit tests for rule engine logic
+- [x] Write tests for state management
+- [x] Create Dockerfile for detect-service
+- [x] Create Helm chart values
+- [x] Test detection flow end-to-end
 
 ## Sprint 4: Case Management (Task 4)
 
